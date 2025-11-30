@@ -183,12 +183,13 @@ with tab3:
         st.pyplot(fig5)
         
     # --- GRÁFICO 6: BAR PLOT (Pedidos por Zona Restaurante) ---
+    
     with col_z2:
         st.subheader("Pedidos por Zona (Restaurante)")
         conteo_rest = df_filtered['restaurant_zone'].value_counts()
         
-        fig6, ax6 = plt.subplots()
+        fig6, ax6 = plt.subplots(fig_size=(5, 3))
         ax6.bar(conteo_rest.index, conteo_rest.values, color='lightgreen')
         ax6.set_ylabel("Cantidad")
         plt.setp(ax6.get_xticklabels(), rotation=45)
-        st.pyplot(fig6)
+        st.pyplot(fig6, use_container_width=False)) #Para que no estire la figura
